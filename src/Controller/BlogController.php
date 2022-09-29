@@ -76,7 +76,7 @@ class BlogController extends AbstractController
         $form->handleRequest($globals);
 
         // dump($globals); // permet d'afficher les données de l'objet $globals (comme var_dump())
-        dump($article);
+        // dump($article);
 
         if($form->isSubmitted() && $form->isValid())
         {
