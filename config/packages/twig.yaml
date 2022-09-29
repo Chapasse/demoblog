@@ -1,0 +1,9 @@
+twig:
+  default_path: "%kernel.project_dir%/templates"
+  form_themes: ["bootstrap_5_layout.html.twig"]
+#   Nous indiquons que tous nos formulaires utilisent les classes de bootstrap 5
+#   se trouve dans demoBlog\vendor\symfony\twig-bridge\Resources\views\Form
+
+when@test:
+  twig:
+    strict_variables: true

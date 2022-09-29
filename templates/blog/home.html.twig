@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+
+{# extends permet d'hériter d'un template #}
+{# lors de l'héritage, le reste du code doit se trouver dans des blocks #}
+{# le contenu des blocks de la page écrase le contenu des blocks de la base #}
+
+{% block title %}
+    Accueil
+{% endblock %}
+
+{% block body %}
+
+    <h1>Bienvenue sur le demoBlog !!</h1>
+
+    <p>Coucou tout le monde !</p>
+
+    <h3>{{ slogan }}</h3>
+    {# l'affichage de la variable slogan déclarée dans la méthode home() #}
+
+    {% if age >= 18 %}
+        <p>Tu es majeur</p>
+    {% else %}
+        <p>Tu es mineur</p>
+    {% endif %}
+
+    {# set permet de définir une variable en twig #}
+    {% set str = "J'ai un ordinateur" %}
+    {% if str starts with "J'ai" %}
+    {# start with permet de vérifier si la variable commence par ... #}
+        <p>C'est vrai</p>
+
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des voitures{% endblock %}
+
+{% block body %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Marque</th>
+      <th scope="col">Modele</th>
+      <th scope="col">Description</th>
+      <th scope="col">Prix</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for voiture in voitures %} 
+    <tr>
+      <td >{{ voiture.marque|raw }}</th>
+      <td>{{ voiture.modele|raw }}</td>
+      <td>{{ voiture.description }}</td>
+      <td>{{ voiture.prix }} €</td>
+      <td><a href="{{path('show_voiture', {id: voiture.id})}}" class="btn btn-secondary">Voire</a></td>
+      <td><a href="{{path('voiture_edit', {id: voiture.id})}}" class="btn btn-primary">Modifier</a></td>
+      <td><a onclick="return confirm('Voulez-vous supprimer cet article ?')" href="{{path('voiture_delete', {id: voiture.id})}}" class="btn btn-danger">Supprimer</a></td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<section class="row card">
+    <div class="col-md-6 mx-auto text-center border border-dark mb-3 p-3 mt-3 mr-1">
+        <h1>{{ voiture.marque|raw }}</h1>
+
+        <p>{{ voiture.modele|raw }}</p>
+
+        <p>{{ voiture.description }}</p>
+
+        <p>{{ voiture.prix }} €</p>
+
+        {% if voiture.description ends with "cher" %}
+
+        <a href="https://www.ferrari.com/fr-FR">cliquez ici pour retrouver votre {{ voiture.modele }}</a>
+        {% endif %}
+        <div>
+            <a href="{{path('voiture_edit',{id: voiture.id})}}" class="btn btn-primary">Editer</a>
+            <a onclick="return confirm('Voulez-vous supprimer cet article ?')" href="{{path('voiture_delete',{id: voiture.id})}}" class="btn btn-danger">Supprimer</a>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
